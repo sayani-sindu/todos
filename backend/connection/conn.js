@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 
 const conn = async () => {
     try {
-        await mongoose.connect(
-            "mongodb+srv://sindusayani:SinduSayani@cluster0.xpt5q.mongodb.net/?tls=true")
+        const connStr = await mongoose.connect("mongodb://localhost:27017/todoDB")
         console.log("Connected to MongoDB");
+        console.log(connStr);
     } catch (error) {
-        console.error("Error connecting to MongoDB:", error.message);
+        console.error("Error connecting to MongoDB:", error);
     }
 };
 
